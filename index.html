@@ -10,10 +10,9 @@
     <header><h1>Budget & get yo money right!</h1></header>
     <section class="income__section">
         <h2>First, input your income.</h2>
-        <label for="income">Current Income (ex: 80,000):</label>
-        <input type="text" id="income" name="income"><br><br>
-        <button>Insert Income</button>
-
+        <label for="income__input">Current Income (No Commas Please):</label>
+        <input type="text" id="income__input" name="income"><br><br>
+        <button onclick="displayIncome()">Insert Income</button>
     </section>
     <section class="tracker">
         <h2>Now, input your expenses so we can budget!</h2>
@@ -42,10 +41,12 @@
         </select><br><br>
         <label for="info">Extra Information:</label>
         <input type="text" id="info" name="info"><br><br>
-        <button>Add Expense</button>
+        <button onclick="addRow()">Add Expense</button>
     </section>
     <section class="expense__section">
-        <table>
+        <p id="income__p"></p>
+        <p id="monthlyinc__p"></p>
+        <table id="expense__table">
             <tr>
                 <th>Expense Name</th>
                 <th>Cost</th>
@@ -59,7 +60,7 @@
                 <td>Give Some Insight</td>
             </tr>
         </table>
-        <p id="income__p">Your Income is $____</p>
     </section>
+    <script src="index.js"></script>
 </body>
 </html>
