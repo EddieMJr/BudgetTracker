@@ -3,12 +3,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>Start Budgeting!</title>
 </head>
 <body>
-    <header>Budget & get yo money right!</header>
+    <header><h1>Budget & get yo money right!</h1></header>
+    <section class="income__section">
+        <h2>First, input your income.</h2>
+        <label for="income">Current Income (ex: 80,000):</label>
+        <input type="text" id="income" name="income"><br><br>
+        <button>Insert Income</button>
+
+    </section>
     <section class="tracker">
-        
+        <h2>Now, input your expenses so we can budget!</h2>
+        <label for="item">Expense Name:</label>
+        <input type="text" id="item" name="item"><br><br>
+        <label for="cost">Cost:</label>
+        <input type="text" id="cost" name="cost"><br><br>
+        <label for="category">Category:</label>
+        <select id="category" name="category" placeholder="Select...">
+            <option>Select...</option>
+            <option value="person">Personal Item</option>
+            <option value="house">Housing</option>
+            <option value="transport">Transportation</option>
+            <option value="food">Food</option>
+            <option value="utilities">Utilities</option>
+            <option value="clothe">Clothing</option>
+            <option value="health">Medical/Healthcare</option>
+            <option value="insure">Insurance</option>
+            <option value="household">Household Items</option>
+            <option value="debt">Debt</option>
+            <option value="retire">Retirement</option>
+            <option value="edu">Education</option>
+            <option value="save">Savings</option>
+            <option value="gift">Gifts/Donations</option>
+            <option value="entertainment">Entertainment</option>
+        </select><br><br>
+        <label for="info">Extra Information:</label>
+        <input type="text" id="info" name="info"><br><br>
+        <button>Add Expense</button>
+    </section>
+    <section class="expense__section">
+        <table>
+            <tr>
+                <th>Expense Name</th>
+                <th>Cost</th>
+                <th>Category</th>
+                <th>Extra Info</th>
+            </tr>
+            <tr>
+                <td>What is it?</td>
+                <td>How Much Spent?</td>
+                <td>What Category Fits?</td>
+                <td>Give Some Insight</td>
+            </tr>
+        </table>
+        <p id="income__p">Your Income is $____</p>
     </section>
 </body>
 </html>
