@@ -9,8 +9,8 @@
 <body>
     <header><h1>Budget & get yo money right!</h1></header>
     <section class="income__section">
-        <h2>First, input your income.</h2>
-        <label for="income__input">Current Income (No Commas Please):</label>
+        <h2>First, input your salary.</h2>
+        <label for="income__input">Current Salary (No Commas):</label>
         <input type="text" id="income__input" name="income"><br><br>
         <button onclick="displayIncome()">Insert Income</button>
     </section>
@@ -22,7 +22,7 @@
         <input type="text" id="cost" name="cost"><br><br>
         <label for="category">Category:</label>
         <select id="category" name="category" placeholder="Select...">
-            <option>Select...</option>
+            <option value="select">Select...</option>
             <option value="Personal">Personal Item</option>
             <option value="Housing">Housing</option>
             <option value="Transportation">Transportation</option>
@@ -41,7 +41,7 @@
         </select><br><br>
         <label for="info">Extra Information:</label>
         <input type="text" id="info" name="info"><br><br>
-        <button onclick="addRow()">Add Expense</button>
+        <button id="addBtn" onclick="addRow()">Add Expense</button>
     </section>
     <section class="expense__section">
         <p id="income__p"></p>
@@ -54,6 +54,10 @@
                 <th>Extra Info</th>
             </tr>
         </table>
+        <button id="summarize__button">Summarize</button>
+    </section>
+    <section id="receipt__section">
+        <p id="reciept__p"></p>
     </section>
     <script src="index.js"></script>
 </body>

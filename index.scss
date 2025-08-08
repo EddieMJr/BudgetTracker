@@ -9,8 +9,8 @@ $secondary-color: #ffffff;
 }
 
 html {
-    background-color: $primary-color;
     color: $secondary-color;
+    @include linear-gradient(right, $primary-color, #8b008b);
 }
 
 header {
