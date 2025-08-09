@@ -41,7 +41,7 @@
         </select><br><br>
         <label for="info">Extra Information:</label>
         <input type="text" id="info" name="info"><br><br>
-        <button id="addBtn" onclick="addRow()">Add Expense</button>
+        <button id="addBtn">Add Expense</button>
     </section>
     <section class="expense__section">
         <p id="income__p"></p>
@@ -54,10 +54,15 @@
                 <th>Extra Info</th>
             </tr>
         </table>
-        <button id="summarize__button">Summarize</button>
+        <button id="summarize__button" onclick="">Summarize</button>
     </section>
     <section id="receipt__section">
-        <p id="reciept__p"></p>
+        <h3 style="color: red">Reciept</h3>
+        <p id="salary__p">Salary: </p>
+        <p id="monthly__p">Monthly Income: </p>
+        <p id="rows__p">Total Expenses: </p>
+        <p id="rowTotal__p">Expense Total: </p>
+        <h3 style="color: red">Thanks & Keep Budgeting!</h3>
     </section>
     <script src="index.js"></script>
 </body>

@@ -15,6 +15,8 @@ function displayIncome() {
     const monthlyOut = document.getElementById('monthlyinc__p');
     output.textContent = `Your Salary is ${Number(message).toLocaleString('en-US', { style: 'currency', currency: 'USD' })}`;
     monthlyOut.textContent = `This means your monthly Income is ${Number(denseDiv).toLocaleString('en-US', { style: 'currency', currency: 'USD' })}`;
+
+    myReceipt.setSalary(Number(message)); 
 }
 
 // budget class w/ properties and methods to handle income, expenses, and total budget
@@ -52,6 +54,46 @@ class Budget {
     }
 }
 
+// creates receipt for the summary of the budget (encapsulation)
+class Receipt {
+    constructor() {
+        this.expenses = [];
+        this.salary = 0; 
+    }
+
+    // setting salary
+    setSalary(salary) { 
+        this.salary = salary;
+    }
+
+    // adding expenses to the receipt
+    addExpense(itemName, cost, category, info) {
+        this.expenses.push({ itemName, cost: Number(cost), category, info });
+    }
+
+    // adding up the total price of all the expenses
+    getTotalExpenses() {
+        return this.expenses.reduce((sum, expense) => sum + expense.cost, 0);
+    }
+
+    // getting the monthly income
+    getMonthlyIncome() {
+        return this.salary / 12; // Calculate monthly income based on salary
+    }
+
+    // insert the values into the receipt
+    displayReceipt() {
+        document.getElementById('salary__p').textContent = `Salary: ${this.salary.toLocaleString('en-US', { style: 'currency', currency: 'USD' })}`;
+        document.getElementById('monthly__p').textContent = `Monthly Income: ${this.getMonthlyIncome().toLocaleString('en-US', { style: 'currency', currency: 'USD' })}`;
+        document.getElementById('rows__p').textContent = `Total Expenses: ${this.expenses.length} items`;
+        document.getElementById('rowTotal__p').textContent = `Expense Total: ${this.getTotalExpenses().toLocaleString('en-US', { style: 'currency', currency: 'USD' })}`; 
+        document.getElementById('savings__p').textContent = `Expense Total: ${this.getSavings().toLocaleString('en-US', { style: 'currency', currency: 'USD' })}`; 
+    }
+}
+
+// instantiate the receipt
+const myReceipt = new Receipt();
+
 // for added rows when the add row button is clicked
 document.getElementById('addBtn').addEventListener('click', function() {
     const itemName = document.getElementById('item').value;
@@ -71,12 +113,17 @@ document.getElementById('addBtn').addEventListener('click', function() {
     if (category === 'select') {
         alert('Please select a category.');
         return;
-    }    
+    }
+
+    // add expense to the receipt
+    myReceipt.addExpense(itemName, cost, category, info);
 
     // create a new Budget object with the input values and add a row to the table
     const budget = new Budget(itemName, cost, category, info);
     budget.addRow();
 });
 
-// creates reciept for the summary of the budget
-// class 
+// show receipt when summarize button is clicked
+document.getElementById('summarize__button').addEventListener('click', function() {
+    myReceipt.displayReceipt();
+});
