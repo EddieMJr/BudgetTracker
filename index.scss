@@ -1,4 +1,5 @@
-$primary-color: #5b005b;
+@import 'style.css';
+$primary-color: #7fffd4;
 $secondary-color: #ffffff;
 
 @mixin linear-gradient-bg($direction, $color1, $color2) {
@@ -13,7 +14,7 @@ $secondary-color: #ffffff;
 
 html {
   color: $secondary-color;
-  @include linear-gradient-bg(to right, $primary-color, #8b008b);
+  @include linear-gradient-bg(to right, #4c004c, #e101e1);
 }
 
 header {
@@ -64,4 +65,3 @@ th {
   background-color: #f2f2f2;
   height: 5rem;
 }
-
